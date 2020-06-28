@@ -1,0 +1,1 @@
+<div style="text-align: center; margin:15px">&copy; Copyright <a href="about.php">#Praj_K Department Pvt. Ltd.</a> &reg; Registered under &trade; Trademark of <a href="about.php">Deejwal_Vu</a></div>

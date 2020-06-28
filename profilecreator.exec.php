@@ -1,0 +1,40 @@
+<?php
+session_start();
+include("includes.php");
+if(isset($_SESSION['newprofiletag']))
+{
+    $uname=$_SESSION['uname'];
+    $fname=$_SESSION['fname'];
+    $lname=$_SESSION['lname'];
+    $email=$_SESSION['email'];
+    $phno=$_SESSION['phno'];
+    $pass=$_SESSION['pass'];
+    unset($_SESSION['pass']);
+    $query="insert into signin(lname,fname,phno,email,pass,uname) values('$lname','$fname',$phno,'$email','$pass','$uname');";
+    $subresults=mysqli_query($conn,$query);
+    if($subresults)
+    {
+        $query="select * from signin where uname='$uname' and pass='$pass'";
+        $subresults=mysqli_query($conn,$query);
+        $result=mysqli_fetch_array($subresults);
+        $rows=mysqli_num_rows($result);
+        if($subresults)
+        {
+            $_SESSION['uid']=$result['uid'];
+            $_SESSION['totaldocs']=$result['totaldocs'];
+            $_SESSION['docspresent']=$result['docspresent'];
+            $_SESSION['removedpresent']=$result['removedpresent'];
+            $_SESSION['extension']=$result['extension'];
+            $_SESSION['profilepic']=$result['profilepic'];
+            $_SESSION['newprofile']="yes";
+            header("location:uploadprofilepic.php");
+        }
+    }
+    else
+    {
+        include("header.php");
+        echo "<div style='text-align:center'><br><br><br><br><b>An error occured creating your profile. Please try again Later.</b><br><br><br><br></div>";
+        include("footer.php");
+    }
+}
+?>
