@@ -1,28 +1,22 @@
 <html>
     <head>
         <title>
-            Profile
+            Control Panel
         </title>
-        <?php
-            include("includes.php");
-            session_start();
-            if(!isset($_SESSION['uid']))
-            {
-                header("location:login.php");
-            }
-        ?>
-        <!-- <link rel="stylesheet" type="text/css" href="./css/table.css"> -->
-        <link rel="stylesheet" type="text/css" href="./css/form.css">
+     <link rel="stylesheet" type="text/css" href="../css/form.css">
+     <link rel="stylesheet" type="text/css" href="../Bootstrap/css/bootstrap.min.css">
     </head>
-    <body>
-        <?php
-            include("header.php");
-        ?>
-        <div class="well">
-            <div class="well">
-                <br>
-                <div class="jumbotron">
-                    <img src="./profilepics/<?php echo $_SESSION['profilepic'].'.'.$_SESSION['extension']; ?>" class="img-circle" style="margin-left:37.5%; margin-right:37.5%; width:25%; border:1px solid black;"><br><br>
+<?php
+session_start();
+include('controlmenu.php');
+if(!isset($_SESSION['id']))
+{
+    header("location: login.php");
+}
+?>
+<body>
+                <div class="jumbotron form-container" style="border:1px solid black">
+                    <img src="../profilepics/<?php echo $_SESSION ['profilepic'].'.'.$_SESSION['extension']; ?>" class="img-circle" style="margin-left:37.5%; margin-right:37.5%; width:25%; border:1px solid black;"><br><br>
                     <table class="table table-responsive table-hover table-striped">
                     <tr>
                             <td>
@@ -32,20 +26,12 @@
                             <?php echo $_SESSION['uname']; ?>
                             </td>
                         </tr>
-                    <tr>
-                            <td>
-                            First Name:
-                            </td>
-                            <td>
-                            <?php echo $_SESSION['fname']; ?>
-                            </td>
-                        </tr>
                         <tr>
                             <td>
-                            Last Name:
+                            Name:
                             </td>
                             <td>
-                            <?php echo $_SESSION['lname']; ?>
+                            <?php echo $_SESSION['name']; ?>
                             </td>
                         </tr>
                         <tr>
@@ -63,13 +49,21 @@
                             <td>
                             <?php echo $_SESSION['email']; ?>
                             </td>
-                        <!-- </tr>
+                        </tr>
                         <tr>
                             <td>
-                            Number of Uploads in Account:
+                            Number of Uploads:
                             </td>
                             <td>
                             <?php echo $_SESSION['docspresent']; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            Total Number of Folders:
+                            </td>
+                            <td>
+                            <?php echo $_SESSION['totalfolders']; ?>
                             </td>
                         </tr>
                         <tr>
@@ -82,21 +76,21 @@
                         </tr>
                         <tr>
                             <td>
+                            Total Users:
+                            </td>
+                            <td>
+                            <?php echo $_SESSION['totalusers']; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                             Total Uploads:
                             </td>
                             <td>
                             <?php echo $_SESSION['totaldocs']; ?>
                             </td>
-                        </tr> -->
+                        </tr>
                     </table>
                 </div>
-            </div>
-        </div>
-        <form action="editprofile.php" method="post" class="form-container">
-            <input type="submit" name="sub" value="Update">
-        </form>
-        <?php
-            include("footer.php");
-        ?>
-    </body>
+</body>
 </html>

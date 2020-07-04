@@ -9,6 +9,10 @@ include("includes.php");
 <body>
 <?php
 session_start();
+if(!isset($_SESSION['uid']))
+{
+    header("location:login.php");
+}
 include("Header.php");
 ?>
  <div class="well">

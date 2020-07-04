@@ -15,9 +15,9 @@ body
 <body>
 <?php
 session_start();
+$var='set';
 include("Header.php");
 ?>
-
 <br>
 <hr><hr>
 <div class="container" style="text-align:center">
@@ -68,17 +68,17 @@ automated tiering or locking down data in support of compliance requirements.</h
 <li><b>Customer Support:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our Customer care service managers are so talkitive they do nothing but talk at job. Literally.</li><br>
 </ul>
 </h5>
-<div class="btn" style="background-color:rgb(180, 221, 225);">
+<a href="signup.php"><div class="btn" style="background-color:rgb(180, 221, 225);">
         <?php
         if(!isset($_SESSION['uid']))
         {
-        echo '<a href="signup.php">Join Us</a>';
+        echo 'Join Us';
         }
         else
         {
             echo '<a href="dashboard.php">Go To Your Dashboard</a>';
         }
-        ?>
+        ?></a>
     </div>
 </div>
 <img src="./images/logo.jpg" style="width:30%; padding: 30px; border:1px solid black; height: 300px;">

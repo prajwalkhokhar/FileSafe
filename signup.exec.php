@@ -70,5 +70,3 @@ else
 {
     header("location:signup.php");
 }
-
-// mysqli_result Object ( [current_field] => 0 [field_count] => 11 [lengths] => [num_rows] => 2 [type] => 0 )

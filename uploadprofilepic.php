@@ -1,15 +1,8 @@
 <html>
     <head>
-        <title>Welcome 
-            <?php 
-            session_start();
-            if(isset($_SESSION['uname']))
-            {
-                echo ", ".$_SESSION['uname'];
-            }
-            ?>
-        </title>
+        <title>Update Profile Picture </title>
         <?php
+        session_start();
         include("includes.php");
         ?>
         <link rel="stylesheet" href="./css/dashboard.css">

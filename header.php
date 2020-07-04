@@ -6,7 +6,19 @@ include("includes.php")
     <li><a href="about.php">About</a></li>
     <li><a href="contactus.php">Contact Us</a></li>
     <li><a href="feedback.php">Feedback</a></li>
+    <?php
+    if(isset($var))
+    {
+        echo "<a href='./admin/login.php'>";
+    }
+    ?>
     <li style="float:right; margin: 10px"><img src="./images/icons/logo.jpg" alt="Deejwal_Vu Logo" style="height:40px; border-radius:10px"></li>
+    <?php
+    if(isset($var))
+    {
+        echo "</a>";
+    }
+    ?>
     <?php 
     if(isset($_SESSION['uid']))
     {

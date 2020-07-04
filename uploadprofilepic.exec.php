@@ -14,7 +14,7 @@ if(isset($_SESSION['uid']))
         $uid=$_SESSION['uid'];
         if($_FILES['profilepic']['error']==0)
         {
-            $query="update signin set profilepic='$uid', extension='$extension';";
+            $query="update signin set profilepic='$uid', extension='$extension' where uid=$uid;";
             $subresults=mysqli_query($conn,$query);
             if($subresults)
             {
@@ -50,6 +50,6 @@ if(isset($_SESSION['uid']))
 }
 else
 {
-    header("location:login.php");
+    header("updateprofilepic:login.php");
 }
 ?>

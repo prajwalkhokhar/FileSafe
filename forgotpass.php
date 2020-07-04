@@ -13,14 +13,6 @@
     <body>
         <?php
         include("header.php");
-        if(isset($_GET['pwd']))
-        {
-            echo "<script> document.getElemenById('value').value='$pwd';</script>";
-        } 
-        else if(isset($_GET['error']))
-        {
-            echo "<script> document.getElemenById('value').innerHTML='$error';</script>";
-        }
         ?>
         <div class="container form-container">
             <form action="forgotpass.exec.php" method="POST">
@@ -30,7 +22,20 @@
                 <input type="text" placeholder="Registered Email ID" name="email"><br>
                 <input type="hidden" name="table" value="signin"><br>
                 <input type="submit" name="sub" value="Recover Password"><br>
-                <input type="hidden" id="value">
+                <b style="color:red">
+                <?php
+                if(isset($_GET['pwd']))
+                {
+                    $pwd=$_GET['pwd'];
+                    echo "Your Password is: ".$pwd;
+                } 
+                if(isset($_GET['error']))
+                {
+                $error=$_GET['error'];
+                    echo $error;
+                }
+                ?>
+                </b>
             </form>
         </div>
         <?php

@@ -37,4 +37,8 @@ if(isset($_SESSION['newprofiletag']))
         include("footer.php");
     }
 }
+else
+{
+    header("location:signup.php");
+}
 ?>

@@ -5,19 +5,28 @@ if(isset($_POST['sub']))
 {
     $uname=$_POST['uname'];
     $pass=$_POST['pass'];
-    $query="select * from admin where uname='$uname' and pass='$pass'";
+    $query="select * from signin where uname='$uname' and pass='$pass'";
     $subresult=mysqli_query($conn,$query);
     $result=mysqli_fetch_array($subresult);
     $rows=mysqli_num_rows($subresult);
     {   
         if($rows>0)
         {
-        $_SESSION['id']=$result['id'];
         $_SESSION['uname']=$result['uname'];
-        $_SESSION['email']=$result['email'];
+        $_SESSION['fname']=$result['fname'];
+        $_SESSION['lname']=$result['lname'];
+        $_SESSION['uid']=$result['uid'];
         $_SESSION['phno']=$result['phno'];
-        $_SESSION['name']=$results['name'];
-        header("location:controlpanel.php");
+        $_SESSION['email']=$result['email'];
+        $_SESSION['totaldocs']=$result['totaldocs'];
+        $_SESSION['docspresent']=$result['docspresent'];
+        $_SESSION['removeddocs']=$result['removeddocs'];
+        $_SESSION['profilepic']=$result['profilepic'];
+        $_SESSION['extension']=$result['extension'];
+        $_SESSION['fid']=0;
+        $_SESSION['newprofile']="no";
+        $_SESSION['foldername']="Dashboard";
+        header("location:dashboard.php");
         }
         else
         {   
